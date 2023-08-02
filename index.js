@@ -1,4 +1,7 @@
 // TODO: Include packages needed for this application
+const fileSystem = require('fs');
+const inquirer = require('inquirer');
+const mdDynamo = require('./utils/markdownDynamo');
 
 // TODO: Create an array of questions for user input
 const questions = [];

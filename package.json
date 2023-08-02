@@ -9,6 +9,6 @@
     "author": "sam bailey",
     "license": "ISC",
     "dependencies": {
-        "inquirer": "^8.2.6"
+        "inquirer": "8.2.6"
     }
 }

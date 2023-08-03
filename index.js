@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 
 // include required filesystem (fs) module, export promises module
-const fileSystem = require('fs').promises;
+const { writeFile } = require('fs').promises;
 
 // include required inquirer modedule
 const inquirer = require('inquirer');
@@ -46,10 +46,18 @@ const userQuestions = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+const writeFile = ({name, title, description, installation, usage, contributions, tests}) => 
+`
+this is a test
+the project title is ${title}
+`
 
 // TODO: Create a function to initialize app
-function init() { }
+const init() => { 
+    userQuestions()
+    .then((answers)) => writeFile
+}
 
 // Function call to initialize app
-init();
+// temp: init userQuestions
+init(userQuestions);

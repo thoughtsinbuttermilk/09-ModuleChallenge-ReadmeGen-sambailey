@@ -13,11 +13,11 @@ const mdDynamo = require('./utils/markdownDynamo');
 console.log('Hello. I am the README Dynamo. Let me help you make a professional README.md file')
 
 // TODO: Create an array of questions for user input
-const questions = [
+const userInput = [
         {
             type: 'input',
             name: 'title',
-            // default: 'this string will be used to set the title of your project',
+            default: 'this string will be used to set the title of your project',
             message: 'please enter the title of your project: ',
         },
         {
@@ -47,7 +47,7 @@ const questions = [
         },
 ];
 
-inquirer.prompt(questions).then((answers) => {
+inquirer.prompt(userInput).then((answers) => {
     console.log('\readme information');
     console.log(JSON.stringify(answers, null, '  '));
   });

@@ -20,6 +20,16 @@ const userInput = () => {
             name: 'title',
             default: 'this string will be used to set the title of your project',
             message: 'please enter the title of your project: ',
+
+            // need to sort this out: 'unexpected identifier' error as written
+            // validate: titleInput => {
+            //     if titleInput {
+            //         return true;
+            //     } else {
+            //         console.log('please enter a title for your project')
+            //     }
+            // }
+            
         },
         {
             type: 'input',
@@ -56,11 +66,12 @@ const userInput = () => {
             name: 'license',
             default: 'choose and open source license for your project',
             message: 'please enter instructions for testing this application:',
-            choices: ['MIT', 'Apache 2.0', 'GNU GPL3', 'ISC', 'none']
+            choices: ['MIT', 'Apache 2.0', 'GNU GPL3', 'ISC', new inquirer.Separator(), 'none']
         },
     ]);
 };
 
+// commented this code out: useful for debugging without generating readme.md file on disk
 // inquirer.prompt(userInput).then((answers) => {
 //     console.log('\readme information');
 //     console.log(JSON.stringify(answers, null, '  '));
@@ -74,7 +85,8 @@ ${description}
 `
 
 
-// TODO: Create a function to initialize app
+// DONE: Create a function to initialize app
+// closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/31
 const init = () => {
     userInput()
         .then((answers) => writeFile('markdownDynamo.md', writeMDFile(answers)))

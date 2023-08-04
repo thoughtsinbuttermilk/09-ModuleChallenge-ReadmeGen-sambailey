@@ -13,7 +13,8 @@ const mdDynamo = require('./utils/markdownDynamo');
 console.log('Hello. I am the README Dynamo. Let me help you make a professional README.md file')
 
 // TODO: Create an array of questions for user input
-const userInput = [
+const userInput = () => {
+    return inquirer.prompt([
         {
             type: 'input',
             name: 'title',
@@ -45,25 +46,29 @@ const userInput = [
             name: 'tests',
             message: 'please enter instructions for testing this application:',
         },
-];
+    ]);
+};
 
-inquirer.prompt(userInput).then((answers) => {
-    console.log('\readme information');
-    console.log(JSON.stringify(answers, null, '  '));
-  });
+// inquirer.prompt(userInput).then((answers) => {
+//     console.log('\readme information');
+//     console.log(JSON.stringify(answers, null, '  '));
+//   });
 
 // TODO: Create a function to write README file
-// const writeFile = ({name, title, description, installation, usage, contributions, tests}) => 
-// `
-// this is a test
-// the project title is ${title}
-// `
+const writeMDFile = ({ name, title, description, installation, usage, contributions, tests }) =>
+    `
+this is a test
+the project title is ${title}
+the project description is ${description}
+`
 
 // TODO: Create a function to initialize app
-// const init() => { 
-//     userQuestions()
-//     .then((answers)) => writeFile
-// }
+const init = () => {
+    userInput()
+        .then((answers) => writeFile('index.html', writeMDFile(answers)))
+        .then(() => console.log('success: file written to disk'))
+        .catch((err) => console.error(err));
+}
 
 // Function call to initialize app
-// init();
+init();

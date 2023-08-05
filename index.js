@@ -78,10 +78,38 @@ const userInput = () => {
 //   });
 
 // TODO: Create a function to write README file
-const writeMDFile = ({ name, title, description, installation, usage, contributions, tests }) =>
+const writeMDFile = ({ name, title, description, installation, usage, contributions, tests, license}) =>
 `# ${title} 
-## project description
-${description}
+
+${description}  
+
+## license  
+
+${license}
+
+## contents
+
+<details>
+<summary>click to expand sections</summary>
+
+### installation  
+
+${installation}  
+
+### usage  
+
+${usage}  
+
+### tests  
+
+${tests}
+
+</details>
+
+## contributions  
+
+${contributions}  
+
 `
 
 

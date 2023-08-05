@@ -10,9 +10,6 @@ const inquirer = require('inquirer');
 // include required markdownDynamo js utilities
 const mdDynamo = require('./utils/markdownDynamo');
 
-// greeting
-console.log('Hello. I am the README Dynamo. I will help you make a professional readmeDynamo.md file')
-
 // TODO: Create an array of questions for user input
 const userInput = () => {
     return inquirer.prompt([
@@ -23,21 +20,21 @@ const userInput = () => {
             // NOTE: using default text 'breaks' the if statement that checks for input
             // TODO: write a test to check the user has imput text and re-work the if statement to test for the default string
             message: 'please enter the title of your project (required): ',
-            validate (answer) {
+            validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
                 } else {
                     return true;
                 }
             }
-            
+
         },
         {
             type: 'input',
             name: 'description',
             // default: 'describing your project helps the audience understand the intent, usage, and features available ',
             message: 'please enter a descrption for your project (required):',
-            validate (answer) {
+            validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
                 } else {
@@ -67,7 +64,7 @@ const userInput = () => {
             name: 'installation',
             // default: 'how would a user install the application?',
             message: 'please enter installation instructions (required):',
-            validate (answer) {
+            validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
                 } else {
@@ -80,7 +77,7 @@ const userInput = () => {
             name: 'usage',
             // default: 'how would a customer use the application?',
             message: 'please enter instructions for using this application (required):',
-            validate (answer) {
+            validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
                 } else {
@@ -119,8 +116,8 @@ const userInput = () => {
 // DONE: Create a function to write README file
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30
 // note: TOC links do not work when details is not expanded; rework this after you add the screen cap and recording
-const writeMDFile = ({title, description, license, installation, usage, testing, contributions, contact}) =>
-`# ${title} 
+const writeMDFile = ({ title, description, license, installation, usage, testing, contributions, contact }) =>
+    `# ${title} 
 
 ${description}  
 
@@ -166,6 +163,10 @@ ${contact}
 // DONE: Create a function to initialize app
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/31
 const init = () => {
+
+    // greeting
+    console.log('Hello. I am the README Dynamo. I will help you make a professional readmeDynamo.md file')
+
     userInput()
         .then((answers) => writeFile('markdownDynamo.md', writeMDFile(answers)))
         .then(() => console.log('success: file written to disk'))

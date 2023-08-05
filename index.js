@@ -11,7 +11,7 @@ const inquirer = require('inquirer');
 const mdDynamo = require('./utils/markdownDynamo');
 
 // greeting
-console.log('Hello. I am the README Dynamo. Let me help you make a professional README.md file')
+console.log('Hello. I am the README Dynamo. I will help you make a professional readmeDynamo.md file')
 
 // TODO: Create an array of questions for user input
 const userInput = () => {
@@ -46,6 +46,23 @@ const userInput = () => {
             }
         },
         {
+            type: 'list',
+            name: 'uselicense',
+            // default: 'choose and open source license for your project',
+            message: 'would you like to add a license to this repository?:',
+            choices: ['yes', 'no']
+        },
+        {
+            type: 'list',
+            name: 'license',
+            default: 'choose and open source license for your project',
+            message: 'please enter instructions for testing this application:',
+            choices: ['MIT', 'Apache 2.0', 'GNU GPL3', 'ISC', new inquirer.Separator(), 'none'],
+            when(answers) {
+                return answers.uselicense === 'yes'
+            }
+        },
+        {
             type: 'input',
             name: 'installation',
             // default: 'how would a user install the application?',
@@ -73,33 +90,23 @@ const userInput = () => {
         },
         {
             type: 'input',
+            name: 'tests',
+            default: 'describe the test framework and tests which guard against regressions or how to add tests',
+            message: 'please enter instructions for testing this application:',
+        },
+        {
+            type: 'input',
             name: 'contributions',
             default: 'cite engineers who have contributed to this repository and application',
             message: 'please enter instructions for contributing to this repository and application:',
         },
         {
             type: 'input',
-            name: 'tests',
-            default: 'describe the test framework and tests which guard against regressions or how to add tests',
-            message: 'please enter instructions for testing this application:',
+            name: 'contact',
+            default: 'enter your e-mail so users can contact you with questions or praise!',
+            message: 'please enter your e-mail addess:',
         },
-        {
-            type: 'list',
-            name: 'uselicense',
-            // default: 'choose and open source license for your project',
-            message: 'would you like to add a license to this repository?:',
-            choices: ['yes', 'no']
-        },
-        {
-            type: 'list',
-            name: 'license',
-            default: 'choose and open source license for your project',
-            message: 'please enter instructions for testing this application:',
-            choices: ['MIT', 'Apache 2.0', 'GNU GPL3', 'ISC', new inquirer.Separator(), 'none'],
-            when(answers) {
-                return answers.uselicense === 'yes'
-            }
-        },
+
     ]);
 };
 
@@ -111,7 +118,8 @@ const userInput = () => {
 
 // DONE: Create a function to write README file
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30
-const writeMDFile = ({ name, title, description, installation, usage, contributions, tests, license}) =>
+// note: TOC links do not work when details is not expanded; rework this after you add the screen cap and recording
+const writeMDFile = ({title, description, license, installation, usage, testing, contributions, contact}) =>
 `# ${title} 
 
 ${description}  
@@ -121,9 +129,14 @@ ${description}
 ${license}
 
 ## contents
+- [installation](#installation)
+- [usage](#usage)
+- [testing](#testing)
+- [contributions](#contributions)
+- [contact](#contact)
 
 <details>
-<summary>click to expand sections</summary>
+<summary>click to expand for installation, usage and testing information</summary>
 
 ### installation  
 
@@ -133,15 +146,19 @@ ${installation}
 
 ${usage}  
 
-### tests  
+### testing  
 
-${tests}
+${testing}
 
 </details>
 
 ## contributions  
 
 ${contributions}  
+
+## contact  
+
+${contact}  
 
 `
 

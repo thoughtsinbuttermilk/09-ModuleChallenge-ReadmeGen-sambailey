@@ -13,6 +13,8 @@ const mdDynamo = require('./utils/markdownDynamo');
 // TODO: Create an array of questions for user input
 const userInput = () => {
     return inquirer.prompt([
+        
+        // project title
         {
             type: 'input',
             name: 'title',
@@ -29,6 +31,8 @@ const userInput = () => {
             }
 
         },
+        
+        // project description
         {
             type: 'input',
             name: 'description',
@@ -42,6 +46,8 @@ const userInput = () => {
                 }
             }
         },
+        
+        // project license: conditional
         {
             type: 'list',
             name: 'uselicense',
@@ -59,6 +65,8 @@ const userInput = () => {
                 return answers.uselicense === 'yes'
             }
         },
+
+        // project installation
         {
             type: 'input',
             name: 'installation',
@@ -72,6 +80,8 @@ const userInput = () => {
                 }
             }
         },
+
+        // project usage
         {
             type: 'input',
             name: 'usage',
@@ -85,18 +95,34 @@ const userInput = () => {
                 }
             }
         },
+
+        // project tests
         {
             type: 'input',
             name: 'tests',
             default: 'describe the test framework and tests which guard against regressions or how to add tests',
             message: 'please enter instructions for testing this application:',
         },
+
+        // project contributions
         {
-            type: 'input',
-            name: 'contributions',
+            type: 'list',
+            name: 'contributionsYN',
             default: 'cite engineers who have contributed to this repository and application',
             message: 'please enter instructions for contributing to this repository and application:',
+            choices: ['yes', 'no']
         },
+        {
+            type: 'list',
+            name: 'contributors',
+            default: 'cite engineers who have contributed to this repository and application',
+            message: 'please enter instructions for contributing to this repository and application:',
+            when(answers) {
+                return answers.contributorsYN === 'yes'
+            }
+        },
+
+        // project contact
         {
             type: 'input',
             name: 'contact',

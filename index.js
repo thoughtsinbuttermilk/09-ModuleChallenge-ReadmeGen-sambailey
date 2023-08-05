@@ -14,6 +14,22 @@ const mdDynamo = require('./utils/markdownDynamo');
 const userInput = () => {
     return inquirer.prompt([
         
+        // repository owner
+        {
+            type: 'input',
+            name: 'owner',
+            default: 'your name will be used as the name of the repository owner',
+            message: 'please enter the your first and last name: ',
+            validate(answer) {
+                if (!answer) {
+                    return 'please enter your first and last name';
+                } else {
+                    return true;
+                }
+            }
+
+        },
+        
         // project title
         {
             type: 'input',
@@ -21,7 +37,7 @@ const userInput = () => {
             // default: 'this string will be used to set the title of your project',
             // NOTE: using default text 'breaks' the if statement that checks for input
             // TODO: write a test to check the user has imput text and re-work the if statement to test for the default string
-            message: 'please enter the title of your project (required): ',
+            message: 'please enter the title of your project: ',
             validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
@@ -37,7 +53,7 @@ const userInput = () => {
             type: 'input',
             name: 'description',
             // default: 'describing your project helps the audience understand the intent, usage, and features available ',
-            message: 'please enter a descrption for your project (required):',
+            message: 'please enter a descrption for your project: ',
             validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
@@ -51,7 +67,7 @@ const userInput = () => {
         {
             type: 'list',
             name: 'uselicense',
-            // default: 'choose and open source license for your project',
+            default: 'choose and open source license for your project',
             message: 'would you like to add a license to this repository?:',
             choices: ['yes', 'no']
         },
@@ -71,7 +87,7 @@ const userInput = () => {
             type: 'input',
             name: 'installation',
             // default: 'how would a user install the application?',
-            message: 'please enter installation instructions (required):',
+            message: 'please enter installation instructions: ',
             validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
@@ -86,7 +102,7 @@ const userInput = () => {
             type: 'input',
             name: 'usage',
             // default: 'how would a customer use the application?',
-            message: 'please enter instructions for using this application (required):',
+            message: 'please enter instructions for using this application: ',
             validate(answer) {
                 if (!answer) {
                     return 'please enter a title for your project';
@@ -102,6 +118,13 @@ const userInput = () => {
             name: 'tests',
             default: 'describe the test framework and tests which guard against regressions or how to add tests',
             message: 'please enter instructions for testing this application:',
+            validate(answer) {
+                if(!answer) {
+                    return 'please enter information about how the application is tested'
+                } else {
+                    return true;
+                }
+            }
         },
 
         // project contributions
@@ -115,7 +138,7 @@ const userInput = () => {
         {
             type: 'list',
             name: 'contributors',
-            default: 'cite engineers who have contributed to this repository and application',
+            // default: 'cite engineers who have contributed to this repository and application',
             message: 'please enter instructions for contributing to this repository and application:',
             when(answers) {
                 return answers.contributorsYN === 'yes'
@@ -127,9 +150,16 @@ const userInput = () => {
             type: 'input',
             name: 'contact',
             default: 'enter your e-mail so users can contact you with questions or praise!',
-            message: 'please enter your e-mail addess:',
+            message: 'please enter your e-mail address', 
+            validate: (answer) => {
+                // regex is a dark art: swiped from somewhere on the darkweb after trying to write the expression myself...sheesh
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+              if (!emailRegex.test(answer)) {
+                return 'please provide a valid email address'
+              }
+              return true
+            }
         },
-
     ]);
 };
 
@@ -142,7 +172,7 @@ const userInput = () => {
 // DONE: Create a function to write README file
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30
 // note: TOC links do not work when details is not expanded; rework this after you add the screen cap and recording
-const writeMDFile = ({ title, description, license, installation, usage, testing, contributions, contact }) =>
+const writeMDFile = ({owner, title, description, license, installation, usage, testing, contributions, contact }) =>
     `# ${title} 
 
 ${description}  

@@ -14,7 +14,7 @@ const mdDynamo = require('./utils/markdownDynamo');
 const userInput = () => {
     return inquirer.prompt([
         
-        // repository owner
+        // repository owner (input)
         {
             type: 'input',
             name: 'owner',
@@ -30,7 +30,7 @@ const userInput = () => {
 
         },
         
-        // project title
+        // project title (input)
         {
             type: 'input',
             name: 'title',
@@ -48,7 +48,7 @@ const userInput = () => {
 
         },
         
-        // project description
+        // project description (input)
         {
             type: 'input',
             name: 'description',
@@ -63,7 +63,7 @@ const userInput = () => {
             }
         },
         
-        // project license: conditional
+        // project license (conditional)
         {
             type: 'list',
             name: 'uselicense',
@@ -82,7 +82,7 @@ const userInput = () => {
             }
         },
 
-        // project installation
+        // project installation (input)
         {
             type: 'input',
             name: 'installation',
@@ -97,7 +97,7 @@ const userInput = () => {
             }
         },
 
-        // project usage
+        // project usage (input)
         {
             type: 'input',
             name: 'usage',
@@ -112,7 +112,7 @@ const userInput = () => {
             }
         },
 
-        // project tests
+        // project tests (input)
         {
             type: 'input',
             name: 'tests',
@@ -127,7 +127,7 @@ const userInput = () => {
             }
         },
 
-        // project contributions
+        // project contributions (list)
         {
             type: 'list',
             name: 'contributionsYN',
@@ -145,7 +145,7 @@ const userInput = () => {
             }
         },
 
-        // project contact
+        // project contact (input)
         {
             type: 'input',
             name: 'contact',
@@ -173,7 +173,7 @@ const userInput = () => {
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30
 // note: TOC links do not work when details is not expanded; rework this after you add the screen cap and recording
 const writeMDFile = ({owner, title, description, license, installation, usage, testing, contributions, contact }) =>
-    `# ${title} 
+`# ${title} 
 
 ${description}  
 

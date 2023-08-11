@@ -3,15 +3,20 @@
 // CONNECT REQUIRED PACKAGES
 // include required filesystem (fs) module, export promises module
 // documentation: https://nodejs.org/dist/latest-v10.x/docs/api/fs.html#fs_fs_promises_api
-const { writeFile } = require('fs').promises;
-// include required inquirer modedule
+const fs = require('fs').promises;
+// include required inquirer module
 const inquirer = require('inquirer');
+const util = require('util');
 
 // CONNECT UTILITIES
 // include required markdownDynamo js utilities
-const mdDynamo = require('./utils/markdownDynamo.js');
-const questions = require('./utils/questionUtils.js');
-const licenses = require('./utils/licenseUtils.js');
+const generateMarkdown = require('./utils/markdownDynamo');
+const questions = require('./utils/questionUtils').questions;
+const licenses = require('./utils/licenseUtils');
+// fix for 'ReferenceError: writeFileAsync is not defined'
+// const writeFileAsync = util.promisify(fs.writeFile);
+const writeFileAsync = (fs.writeFile);
+
 
 // DONE: Create a function to write README file
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30
@@ -26,7 +31,11 @@ async function init () {
     // console.log((questions));
 
     try {
-        const answers = inquirer.createPromptModule(questions);
+        const answers = await inquirer.prompt(questions);
+        // answers.licenses = licenses;
+        const readMeData = generateMarkdown(answers);
+        console.log('logging from index.js line 36: ' + readMeData);
+        // await writeFileAsync('generated-README.md', readMeData);
     } catch (err) {
         throw err;
     }

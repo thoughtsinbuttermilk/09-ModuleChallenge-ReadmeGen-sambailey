@@ -16,37 +16,48 @@ function generateMarkdown(data) {
   return `
   # ${data.title}
   
-  # ${title} 
-
-  ${description}  
+  ${data.description}
   
-  ## license  
-  
-  ${license}
-  
+  ${data.licenseBadge}
+    
   ## contents
-  - [installation](#installation)
-  - [usage](#usage)
-  - [testing](#testing)
-  - [contributions](#contributions)
-  - [contact](#contact)
   
-  <details>
-  <summary>click to expand for installation, usage and testing information</summary>
+  1. [about this project](#about%20this%20project)
+    1. [user story](#user%20story)
+    2. [acceptance criteria](#acceptance%20criteria)
+    3. [problems solved](#problems%solved)
+    
+  2. [installation](#installation)
   
-  ### installation  
+  3. [usage](#usage)
+
+  4. [walk through video](walk%20through%video)
+   
+  5. [testing](#testing)
   
-  ${installation}  
+  6. [contributions](#contributions)
   
-  ### usage  
+  7. [contact](#contact)
+
+  ## about  
+
+  ### user story  
+
+  ### acceptance criteria  
+
+  ### problems solved  
+  
+  ## usage  
   
   ${usage}  
   
-  ### testing  
+  ## walk through video
+
+  ![]()
+
+  ## testing  
   
   ${testing}
-  
-  </details>
   
   ## contributions  
   
@@ -55,6 +66,16 @@ function generateMarkdown(data) {
   ## contact  
   
   ${contact}  
+
+  <details>
+  <summary>click to expand for a summary of the topics learned while working on this assignment</summary>
+  
+  ### topics learned  
+  
+  ${learnings}  
+
+  </details>
+  
 `;
 }
 

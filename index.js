@@ -26,7 +26,7 @@ async function init () {
     // console.log((questions));
 
     try {
-        const answers = await inquirer.createPromptModule(questions);
+        const answers = inquirer.createPromptModule(questions);
     } catch (err) {
         throw err;
     }

@@ -9,8 +9,8 @@ const inquirer = require('inquirer');
 
 // CONNECT UTILITIES
 // include required markdownDynamo js utilities
-const mdDynamo = require('./utils/markdownDynamo');
-const questions = require('')
+const mdDynamo = require('./utils/markdownDynamo.js');
+const questions = require('./utils/')
 
 // DONE: Create a function to write README file
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/30

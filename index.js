@@ -19,15 +19,21 @@ const licenses = require('./utils/licenseUtils.js');
 
 // DONE: Create a function to initialize app
 // closed issue: https://github.com/thoughtsinbuttermilk/09-ModuleChallenge-ReadmeGen-sambailey/issues/31
-const init = () => {
+async function init () {
 
     // greeting
     console.log('Hello. I am the README Dynamo. I will help you make a professional readmeDynamo.md file')
+    // console.log((questions));
 
-    userInput()
-        .then((answers) => writeFile('markdownDynamo.md', writeMDFile(answers)))
-        .then(() => console.log('success: file written to disk'))
-        .catch((err) => console.error(err));
+    try {
+        const answers = await inquirer.createPromptModule(questions);
+    } catch (err) {
+        throw err;
+    }
+    // userInput()
+    //     .then((answers) => writeFile('markdownDynamo.md', writeMDFile(answers)))
+    //     .then(() => console.log('success: file written to disk'))
+    //     .catch((err) => console.error(err));
 }
 
 // Function call to initialize app

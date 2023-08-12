@@ -1,5 +1,5 @@
 // added requirement to be able to use Separator method; there is probably a better way, tho.
-const inquirer = require("inquirer");
+// const inquirer = require("inquirer");
 
 // TODO: Create an array of questions for user input
 const questions = [

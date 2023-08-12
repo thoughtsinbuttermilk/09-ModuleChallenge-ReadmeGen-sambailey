@@ -14,7 +14,7 @@ function renderLicenseSection(license) {}
 // TODO: learnings, VSCode extensions: Markdown All in One, TODO, Regex previewer, polacode, peacock, better comments, code spell checker, etc
 
 function generateMarkdown(data) {
-  console.log('logging from markdownDynamo.js @ line 17' + generateMarkdown.data)
+  //console.log('logging from markdownDynamo.js @ line 17' + generateMarkdown.data)
   return
   `
   # ${data.title}

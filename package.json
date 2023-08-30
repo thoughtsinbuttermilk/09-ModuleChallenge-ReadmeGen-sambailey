@@ -7,8 +7,9 @@
         "test": "echo \"error: no test specified\" && exit 1"
     },
     "author": "sam bailey",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
+        "badge-maker": "^3.3.1",
         "inquirer": "8.2.6",
         "node-fetch": "^2.6.12"
     }

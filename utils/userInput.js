@@ -2,7 +2,7 @@
 // DONE: user input for project title, description, installation instructions, usage information,
 // contribution guidelines, and test instructions, GitHub username, link to my GitHub profile, email address
 
-const { default: separator } = require("inquirer/lib/objects/separator");
+const inquirer = require("inquirer");
 
 // DONE: find something to validate the e-mail address
 // NOTE: the e-mail address really shouldn't be validated on the front end but, hey...
@@ -96,17 +96,17 @@ const questions = [
   {
     // license (added to project description)
     name: "license",
-    message: "select a license for your project:",
+    message: "(required) select a license for your project:",
     type: "list",
     choices: [
       "GNU v3",
-      inquirer.Separator(),
+      new inquirer.Separator(),
       "MIT",
-      inquirer.Separator(tick),
+      new inquirer.Separator(),
       "Creative Commons Zero v1.0 Universal",
-      inquirer.Separator(cross),
+      new inquirer.Separator(),
       "Mozilla Public License 2.0",
-      inquirer.Separator(),
+      new inquirer.Separator(),
       "The Unlicense",
     ],
   },
@@ -146,9 +146,15 @@ const questions = [
     message: "(required) enter your e-mail address:",
     type: "input",
     // validate: e-mail address is required
-    // let's see if regex or something else would be good to validate the form of the address, if not the address itself.
-    validate: emailValidator,
+    // don't validate e-mail addresses on the front-end: IRL, you would send an email with a code or link that the user would need to use or visit
+    // just validate that something has been input
+    validate: (answer) => {
+      if (answer === "") {
+        return console.log("\n please enter your e-mail address");
+      }
+      return true;
+    },
   },
 ];
 
-module.exports =  questions;
+module.exports = questions;

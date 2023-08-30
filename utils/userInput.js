@@ -1,6 +1,6 @@
 // TODOS: requirements from readme.md
-// when I enter my project title, then this is displayed as the title of the README
-// when I enter a description, installation instructions, usage information, contribution guidelines, and test instructions, then this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
+// DONE: when I enter my project title, then this is displayed as the title of the README
+// DONE: when I enter a description, installation instructions, usage information, contribution guidelines, and test instructions, then this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 // when I choose a license for my application from a list of options, then a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 // when I enter my GitHub username, then this is added to the section of the README entitled Questions, with a link to my GitHub profile
 // when I enter my email address, then this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
@@ -49,11 +49,48 @@ const questions = [
         }
     },
 
-    // usage information
+    {
+        // usage information
+        name: 'usage',
+        message: '(required) enter usage instructions:',
+        type: 'input',
+        // validate: usage instructions are required
+        validate: (answer) => {
+            if (answer === "") {
+                return console.log("\n please enter the usage instructions");
+            }
+            return true;
+        }
+    },
 
-    // contribution guidelines
+    {
+        // contribution guidelines
+        name: 'contribution',
+        message: '(required) enter contribution instructions:',
+        type: 'input',
+        // validate: contribution instructions are required
+        validate: (answer) => {
+            if (answer === "") {
+                return console.log("\n please enter contribution instructions");
+            }
+            return true;
+        }
+    },
 
-    // test information
+    {
+        // test information
+        name: 'testing',
+        message: '(required) enter testing instructions:',
+        type: 'input',
+        // validate: testing instructions are required
+        validate: (answer) => {
+            if (answer === "") {
+                return console.log("\n please enter testing instructions");
+            }
+            return true;
+        }
+    },
+
 
     // license choice
 

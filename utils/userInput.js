@@ -15,22 +15,46 @@ const questions = [
         // validate: title is required
         validate: (answer) => {
             if (answer === "") {
-                return console.log("\n please enter your project's title");
+                return console.log("\n please enter the project title");
             }
             return true;
         }
     },
 
-    // project description
+    {
+        // project description
+        name: 'description',
+        message: '(required) enter a description of your project:',
+        type: 'input',
+        // validate: description is required
+        validate: (answer) => {
+            if (answer === "") {
+                return console.log("\n please enter the project description");
+            }
+            return true;
+        }
+    },
 
-    // installation instructions
+    {
+        // installation instructions
+        name: 'instalInstructions',
+        message: '(required) enter installation instructions:',
+        type: 'input',
+        // validate: installation instructions are required
+        validate: (answer) => {
+            if (answer === "") {
+                return console.log("\n please enter the installation instructions");
+            }
+            return true;
+        }
+    },
 
     // usage information
 
     // contribution guidelines
 
     // test information
-    
+
     // license choice
 
     // license badge (added to project description)

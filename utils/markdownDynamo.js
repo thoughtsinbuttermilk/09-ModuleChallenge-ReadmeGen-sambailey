@@ -13,7 +13,7 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 // TODO: learnings, VSCode extensions: Markdown All in One, TODO, Regex previewer, polacode, peacock, better comments, code spell checker, etc
 
-function generateMarkdown(data) {
+function markdownTemplate(data) {
   //console.log('logging from markdownDynamo.js @ line 17' + generateMarkdown.data)
   return
   `
@@ -83,4 +83,4 @@ function generateMarkdown(data) {
 ;
 }
 
-module.exports = generateMarkdown;
+module.exports = markdownTemplate;

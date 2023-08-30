@@ -6,7 +6,7 @@ const { default: separator } = require("inquirer/lib/objects/separator");
 
 // DONE: find something to validate the e-mail address
 // NOTE: the e-mail address really shouldn't be validated on the front end but, hey...
-const validator = require("email-validator");
+const emailValidator = require("email-validator");
 
 const questions = [
   {
@@ -150,3 +150,5 @@ const questions = [
     validate: emailValidator,
   },
 ];
+
+module.exports =  questions;

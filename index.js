@@ -35,12 +35,13 @@ const questions = [
         type: 'input',
         name: 'title',
         // default: 'this string will be used to set the title of your project',
-        // NOTE: using default text 'breaks' the if statement that checks for input
+        // NOTE: using default text would me I need to change the validate function
         // TODO: write a test to check the user has imput text and re-work the if statement to test for the default string
         message: 'please enter the title of your project: ',
+        // this input is required, validate the user entered text
         validate(answer) {
             if (!answer) {
-                return 'please enter a title for your project';
+                return 'required: please enter a title for your project';
             } else {
                 return true;
             }
@@ -52,8 +53,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        // default: 'describing your project helps the audience understand the intent, usage, and features available ',
-        message: 'please enter a descrption for your project: ',
+        message: 'required: please enter a description for your project: ',
         validate(answer) {
             if (!answer) {
                 return 'please enter a title for your project';
@@ -86,8 +86,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        // default: 'how would a user install the application?',
-        message: 'please enter installation instructions: ',
+        message: 'required: please enter installation instructions: ',
         validate(answer) {
             if (!answer) {
                 return 'please enter a title for your project';
@@ -116,8 +115,7 @@ const questions = [
     {
         type: 'input',
         name: 'tests',
-        default: 'describe the test framework and tests which guard against regressions or how to add tests',
-        message: 'please enter instructions for testing this application:',
+        message: 'required: please enter instructions for testing this application:',
         validate(answer) {
             if (!answer) {
                 return 'please enter information about how the application is tested'
@@ -131,15 +129,14 @@ const questions = [
     {
         type: 'list',
         name: 'contributionsYN',
-        default: 'cite engineers who have contributed to this repository and application',
+        default: 'cite engineers or colleagues who have contributed to this repository and application',
         message: 'please enter instructions for contributing to this repository and application:',
         choices: ['yes', 'no']
     },
     {
         type: 'list',
         name: 'contributors',
-        // default: 'cite engineers who have contributed to this repository and application',
-        message: 'please enter instructions for contributing to this repository and application:',
+        message: 'reequired: please enter instructions for contributing to this repository and application:',
         when(answers) {
             return answers.contributorsYN === 'yes'
         }
@@ -149,9 +146,7 @@ const questions = [
     {
         type: 'input',
         name: 'contact',
-        // default: 'enter your e-mail so users can contact you with questions or praise!',
-        // disabled default text: it will break the user input if the first attempt at input fails
-        message: 'please enter your e-mail address',
+        message: 'required please enter your e-mail address',
         validate: (answer) => {
             // regex is a dark art: swiped from somewhere on the darkweb after trying to write the expression myself...sheesh
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

@@ -3,7 +3,6 @@
 // contribution guidelines, and test instructions, GitHub username, link to my GitHub profile, email address
 
 const inquirer = require("inquirer");
-const { default: separator } = require("inquirer/lib/objects/separator");
 
 // DONE: find something to validate the e-mail address
 // NOTE: the e-mail address really shouldn't be validated on the front end but, hey...
@@ -97,7 +96,7 @@ const questions = [
   {
     // license (added to project description)
     name: "license",
-    message: "select a license for your project:",
+    message: "(required) select a license for your project:",
     type: "list",
     choices: [
       "GNU v3",

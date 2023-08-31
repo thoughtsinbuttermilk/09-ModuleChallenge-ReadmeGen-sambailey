@@ -6,7 +6,6 @@ const inquirer = require("inquirer");
 
 // DONE: find something to validate the e-mail address
 // NOTE: the e-mail address really shouldn't be validated on the front end but, hey...
-const emailValidator = require("email-validator");
 
 const questions = [
   {

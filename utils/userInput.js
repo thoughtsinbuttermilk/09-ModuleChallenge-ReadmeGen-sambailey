@@ -158,7 +158,7 @@ const questions = [
 
   {
     name: "fileName",
-    message: "(required) enter the name of the generated README file;",
+    message: "(required) enter the name of the generated README file:",
     type: "input",
     // validate: requires user provided a name for the generated README file
     validate: (answer) => {

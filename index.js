@@ -33,7 +33,7 @@ function init() {
     inquirer
       .prompt(questions)
       .then((response) => {
-        writeToFile(response.fileName, response);
+        writeToFile(`./dist/${response.fileName}`, response);
       })
       .catch((err) => {
         console.log(err);

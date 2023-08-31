@@ -98,7 +98,7 @@ const questions = [
     message: "(required) select a license for your project:",
     type: "list",
     choices: [
-      "GNU v3",
+      "GNU General Public License v3.0",
       // flair: using separators
       new inquirer.Separator(),
       "MIT",

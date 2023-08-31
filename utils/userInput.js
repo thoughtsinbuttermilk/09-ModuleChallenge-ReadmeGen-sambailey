@@ -155,6 +155,19 @@ const questions = [
       return true;
     },
   },
+
+  {
+    name: "fileName",
+    message: "(required) enter the name of the generated README file;",
+    type: "input",
+    // validate: requires user provided a name for the generated README file
+    validate: (answer) => {
+      if (answer === "") {
+        return console.log("\n please enter the filename");
+      }
+      return true;
+    },
+  },
 ];
 
 module.exports = questions;

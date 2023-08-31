@@ -100,6 +100,7 @@ const questions = [
     type: "list",
     choices: [
       "GNU v3",
+      // flair: using separators
       new inquirer.Separator(),
       "MIT",
       new inquirer.Separator(),

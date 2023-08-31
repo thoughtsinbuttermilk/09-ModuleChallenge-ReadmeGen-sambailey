@@ -9,7 +9,6 @@
     "author": "sam bailey",
     "license": "MIT",
     "dependencies": {
-        "inquirer": "8.2.6",
-        "node-fetch": "^2.6.12"
+        "inquirer": "8.2.6"
     }
 }

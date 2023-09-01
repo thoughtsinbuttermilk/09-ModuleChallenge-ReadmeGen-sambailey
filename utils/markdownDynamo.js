@@ -28,10 +28,40 @@ function generateMarkdown(data) {
 ${data.description}
 
 ${createLicenseBadge(data.license)}
+
+# Table of Contents
+1. [Installation Instructions](#installation%20instructions)
+2. [Usage](#usage)
+3. [Contributing](#contributing)
+4. [Questions](#questions)
     
 ## Installation Instructions
 
 ${data.instalInstructions}
+
+## Usage 
+
+${data.usage}
+
+## Contributing 
+
+${data.contribution}
+
+<details>
+<summary>Click to expand for test and licensing details</summary>
+
+## Tests
+
+${data.testing}
+
+## License
+
+</details>
+
+## Questions
+
+If you have any questions about this software, repository or want to reach out to me directly, please see my work in GitHub at ${data.ghUserName} or shoot me an e-mail at ${data.emailAddress}. Thank-you!
+
 `;
 }
 

@@ -1,9 +1,6 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// TODO: Create a function that returns the license link
-// TODO: Create a function to generate markdown for README
-
-// i used a switch statement originally
+// a switch statement was used when this project was originally submitted
 // replacing that with an object literal
+// function that returns the license badge and make it a clickable link for the description section
 function createLicenseBadge(selectedLicense) {
   var license = {
     // use back ticks instead of quotes, the return type will be added to the generated markdown
@@ -17,6 +14,7 @@ function createLicenseBadge(selectedLicense) {
   return license[selectedLicense];
 }
 
+// function that returns the license name for the license section
 function getLicenseName(licenseName) {
   var license = {
     "GNU General Public License v3.0": `GNU General Public License v3.0`,
@@ -28,6 +26,7 @@ function getLicenseName(licenseName) {
   return license[licenseName];
 }
 
+// function that returns the license link for the license section
 function createLicenseLink(licenseLink) {
   var license = {
     "GNU General Public License v3.0": `[this link to view the details of the GNU General Public License v3.0.]((https://www.gnu.org/licenses/gpl-3.0))`,
@@ -39,6 +38,7 @@ function createLicenseLink(licenseLink) {
   return license[licenseLink];
 }
 
+// function that returns the markdown data for the generated README.md file
 function generateMarkdown(data) {
   return `
 
@@ -91,125 +91,3 @@ If you have any questions about this software, repository or want to reach out t
 }
 
 module.exports = generateMarkdown;
-
-// var licenses = licenseBadge("license");
-// console.log(licenses);
-
-// function generateMarkdown(data) {
-//   //console.log('logging from markdownDynamo.js @ line 17' + generateMarkdown.data)
-//   return
-//   `
-//   # ${data.title}
-
-//   ${data.description}
-
-//   ${data.licenseBadge}
-
-//   ## contents
-
-//   1. [about this project](#about%20this%20project)
-//     1. [user story](#user%20story)
-//     2. [acceptance criteria](#acceptance%20criteria)
-//     3. [problems solved](#problems%solved)
-
-//   2. [installation](#installation)
-
-//   3. [usage](#usage)
-
-//   4. [walk through video](walk%20through%video)
-
-//   5. [testing](#testing)
-
-//   6. [contributions](#contributions)
-
-//   7. [contact](#contact)
-
-//   ## about
-
-//   ### user story
-
-//   ### acceptance criteria
-
-//   ### problems solved
-
-//   ## usage
-
-//   ${usage}
-
-//   ## walk through video
-
-//   `![]()`
-
-//   ## testing
-
-//   ${testing}
-
-//   ## contributions
-
-//   ${contributions}
-
-//   ## contact
-
-//   ${contact}
-
-//   <details>
-//   <summary>click to expand for a summary of the topics learned while working on this assignment</summary>
-
-//   ### topics learned
-
-//   ${learnings}
-
-//   </details>
-
-// `
-// ;
-//   `![]()`
-
-//   ## testing
-
-//   ${testing}
-
-//   ## contributions
-
-//   ${contributions}
-
-//   ## contact
-
-//   ${contact}
-
-//   <details>
-//   <summary>click to expand for a summary of the topics learned while working on this assignment</summary>
-
-//   ### topics learned
-
-//   ${learnings}
-
-//   </details>
-
-// `
-// ;
-//   `![]()`
-
-//   ## testing
-
-//   ${testing}
-
-//   ## contributions
-
-//   ${contributions}
-
-//   ## contact
-
-//   ${contact}
-
-//   <details>
-//   <summary>click to expand for a summary of the topics learned while working on this assignment</summary>
-
-//   ### topics learned
-
-//   ${learnings}
-
-//   </details>
-
-// `;
-// }

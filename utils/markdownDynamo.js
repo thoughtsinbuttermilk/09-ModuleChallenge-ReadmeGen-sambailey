@@ -19,7 +19,6 @@ function createLicenseBadge(selectedLicense) {
 }
 
 function generateMarkdown(data) {
-console.log(createLicenseBadge(data.license));
   return `
 
 # ${data.title}

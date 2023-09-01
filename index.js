@@ -12,7 +12,7 @@ const generateMarkdown = require("./utils/markdownDynamo");
 // function to write markdown file, uses template literal from generateMarkdown
 function writeToFile(fileName, data) {
   fs.appendFile(`${fileName}`, generateMarkdown(data), (err) =>
-    err ? console.log(err) : console.log(`${fileName}.md has been generated.`)
+    err ? console.log(err) : console.log(`${fileName}.md has been generated in the dist directory at the root of the repository.`)
   );
 }
 

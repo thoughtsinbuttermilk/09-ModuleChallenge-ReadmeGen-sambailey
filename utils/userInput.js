@@ -1,12 +1,7 @@
-// TODOS: requirements from readme.md
-// DONE: user input for project title, description, installation instructions, usage information,
-// contribution guidelines, and test instructions, GitHub username, link to my GitHub profile, email address
-
+// required package
 const inquirer = require("inquirer");
 
-// DONE: find something to validate the e-mail address
-// NOTE: the e-mail address really shouldn't be validated on the front end but, hey...
-
+// prompt user for README information
 const questions = [
   {
     // project title

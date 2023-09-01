@@ -26,11 +26,9 @@ function generateMarkdown(data) {
 ## Description
 
 ${data.description}
-    
-## License
-    
-${createLicenseBadge(data.license)}
 
+${createLicenseBadge(data.license)}
+    
 ## Installation Instructions
 
 ${data.instalInstructions}

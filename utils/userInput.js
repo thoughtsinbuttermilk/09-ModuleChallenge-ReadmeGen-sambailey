@@ -108,6 +108,7 @@ const questions = [
       "Mozilla Public License 2.0",
       new inquirer.Separator(),
       "The Unlicense",
+      new inquirer.Separator(),
     ],
   },
 

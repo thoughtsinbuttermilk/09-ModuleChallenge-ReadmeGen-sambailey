@@ -2,23 +2,6 @@
 // TODO: Create a function that returns the license link
 // TODO: Create a function to generate markdown for README
 
-// function createLicenseBadge(license) {
-//   switch (license) {
-//     case "GNU General Public License v3.0":
-//       return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
-//     case "MIT":
-//       return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-//     case "Creative Commons Zero v1.0 Universal":
-//       return `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`;
-//     case "Mozilla Public License 2.0":
-//       return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
-//     case "The Unlicense":
-//       return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`;
-//     default:
-//       return ``;
-//   }
-// }
-
 // i used a switch statement originally
 // replacing that with an object literal 
 function createLicenseBadge(selectedLicense) {
@@ -31,7 +14,7 @@ function createLicenseBadge(selectedLicense) {
     "Mozilla Public License 2.0": `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`,
     "The Unlicense": `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,
   };
-  // what should I return, or is it the form of the code above?
+  // thanks to nikki and jason for helping me get this return working! brackets because string
   return license[selectedLicense];
 }
 
